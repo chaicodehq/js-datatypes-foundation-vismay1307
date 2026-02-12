@@ -48,21 +48,53 @@
  *   removeLastItem(["tamatar", "pyaaz", "mirchi"])   // => "mirchi"
  */
 export function addToCart(cart, item) {
-  // Your code here
+  // Agar cart array nahi hai
+  if (!Array.isArray(cart)) return -1;
+
+  // Agar item valid string nahi hai ya empty hai
+  if (typeof item !== "string" || item.trim() === "") {
+    return cart.length;
+  }
+
+  // push automatically new length return karta hai
+  return cart.push(item);
 }
 
 export function addUrgentItem(cart, item) {
-  // Your code here
+  // Agar cart array nahi hai
+  if (!Array.isArray(cart)) return [];
+
+  // Agar item valid string nahi hai
+  if (typeof item !== "string" || item.trim() === "") {
+    return cart;
+  }
+
+  cart.unshift(item);
+  return cart;
 }
 
 export function removeLastItem(cart) {
-  // Your code here
+  // Agar cart array nahi hai ya empty hai
+  if (!Array.isArray(cart) || cart.length === 0) {
+    return undefined;
+  }
+
+  return cart.pop();
 }
 
 export function isInCart(cart, item) {
-  // Your code here
+  // Agar cart array nahi hai
+  if (!Array.isArray(cart)) return false;
+
+  return cart.includes(item);
 }
 
 export function mergeCarts(cart1, cart2) {
-  // Your code here
+  // Agar cart1 array nahi hai to empty array maan lo
+  if (!Array.isArray(cart1)) cart1 = [];
+
+  // Agar cart2 array nahi hai to empty array maan lo
+  if (!Array.isArray(cart2)) cart2 = [];
+
+  return cart1.concat(cart2);
 }
